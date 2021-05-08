@@ -42,35 +42,41 @@ declare namespace utils {
    */
   export function getCookie(name: string): string
 
-  /**
-   * 
-   * @desc 根据name删除cookie
-   * @param  {String} name 
-   */
-  export function removeCookie(name: string): void
 
-  /**
-   * 
-   * @desc  设置Cookie
-   * @param {String} name 
-   * @param {String} value 
-   * @param {Number} days 
-   */
-  export function setCookie(name: string, value: string, days: number): void
-  
   /**
    * 
    * @desc 获取浏览器类型和版本
    * @return {String} 
    */
-  export function getExplore(): string
+   enum BrowserType {
+    IE="IE",
+    EDGE="EDGE",
+    Firefox="Firefox",
+    Chrome="Chrome",
+    Opera="Opera",
+    Safari="Safari",
+    NOT_FUND="not fund"
+   }
+  interface getExploreData {
+    browser: BrowserType;
+    version: string;
+  }
+  export function getExplore(): getExploreData
  
   /**
    * 
    * @desc 获取操作系统类型
    * @return {String} 
    */
-  export function getOS(): void
+   enum OsType {
+    ios = "ios",
+    android = "android",
+    windowsPhone = "windowsPhone",
+    MacOSX = "MacOSX",
+    windows = "windows",
+    linux = "linux"
+  }
+  export function getOS(): OsType
   
   /**
    * 
@@ -297,7 +303,7 @@ declare namespace utils {
    * @param  {Object} obj 
    * @return {String}
    */
-  export function stringfyQueryString(obj: object): string
+  export function stringifyQueryString(obj: object): string
 
 /**
    * 
@@ -314,42 +320,42 @@ declare namespace utils {
    * @param  {String} string 
    * @return {String} void
    */
-   export function fliterPhone(param: string | number): string
+   export function filterPhone(param: string | number): string
 
     /**
    * 
    * @desc    身份证号中间 4 位做掩码
    * @param  {String | Number} 
    */
-  export function fliterCard(param: string | number): string
+  export function filterCard(param: string | number): string
 
    /**
    * 
    * @desc    监听 onHashchange 事件 
    * @param  {Function} 
    */
-    export function onHashChange(callback: function): void
+    export function onHashChange(callback: Function): void
 
   /**
    * 
    * @desc    监听 onPopstate 事件 
    * @param  {Function} 
    */
-   export function onPopState(callback: function): void
+   export function onPopState(callback: Function): void
 
    /**
    * 
    * @desc    监听 onPushState 事件 
    * @param  {Function} 
    */
-    export function onPushState(callback: function): void
+    export function onPushState(callback: Function): void
 
      /**
    * 
    * @desc    监听 onReplaceState 事件 
    * @param  {Function} 
    */
-      export function onReplaceState(callback: function): void
+      export function onReplaceState(callback: Function): void
 
 }
 

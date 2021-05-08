@@ -27,8 +27,8 @@ describe('Url API:', function () {
         });
     });
 
-    describe('#stringfyQueryString()', function () {
-        it(`utils.stringfyQueryString({
+    describe('#stringifyQueryString()', function () {
+        it(`utils.stringifyQueryString({
             wd: '百度',
             rsv_spt: '10'
         }) === 'https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6&rsv_spt=10'  should return true`, function () {
@@ -36,7 +36,7 @@ describe('Url API:', function () {
                 wd: '百度',
                 rsv_spt: '10'
             }
-            assert(utils.stringfyQueryString(param) === 'wd=%E7%99%BE%E5%BA%A6&rsv_spt=10')
+            assert(utils.stringifyQueryString(param) === 'wd=%E7%99%BE%E5%BA%A6&rsv_spt=10')
         });
     });
 

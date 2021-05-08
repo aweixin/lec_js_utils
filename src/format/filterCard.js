@@ -4,11 +4,11 @@
  */
 
 
-function fliterCard(value) {
+function filterCard(value) {
   const val = String(value)
   const boolean = val !== 'undefined' && val !== 'null'
   return boolean ? val.substr(0, 10) + '****' + val.substr(14) : ''
 }
 
-module.exports = fliterCard
+module.exports = filterCard
 

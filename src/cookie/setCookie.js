@@ -7,7 +7,7 @@
  */
 function setCookie(name, value, days) {
     var date = new Date();
-    date.setDate(date.getDate() + days);
+    date.setDate(date.getDate() + (days || 0));
     document.cookie = name + '=' + value + ';expires=' + date;
 }
 

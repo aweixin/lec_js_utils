@@ -4,7 +4,7 @@
  * @param  {Object} obj 
  * @return {String}
  */
-function stringfyQueryString(obj) {
+function stringifyQueryString(obj) {
     if (!obj) return '';
     var pairs = [];
 
@@ -24,4 +24,4 @@ function stringfyQueryString(obj) {
     return pairs.join('&');
 }
 
-module.exports = stringfyQueryString
+module.exports = stringifyQueryString

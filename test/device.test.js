@@ -1,8 +1,8 @@
 describe('Device API:', function () {
     describe('#getExplore()', function () {
         it(`utils.getExplore() should return "Chrome"`, function () {
-            console.log(`Explore:${utils.getExplore()}`)
-            assert(/^Chrome:/.test(utils.getExplore()))
+            console.log(`Explore:${utils.getExplore().browser}`)
+            assert(utils.getExplore().browser === "Chrome")
         });
     });
 
