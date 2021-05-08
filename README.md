@@ -108,7 +108,7 @@ function getExplore(): getExploreData;
 getExplore(); // {browser: "Chrome"version: "90.0.4430.93"}
 ```
 
-### getExplore
+### getOS
 
 #### 获取当前系统，ios, android, macos, windows 等
 
