@@ -1,6 +1,6 @@
 {
   "name": "lec_js_utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个 JS 工具库",
   "main": "min/lec_js_utils.min.js",
   "types": "index.d.ts",

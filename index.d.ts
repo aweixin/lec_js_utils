@@ -321,7 +321,11 @@ declare namespace utils {
    * @return {String} void
    */
    export function filterPhone(param: string | number): string
-
+/**
+   * 
+   * @desc   给数字中间每 3 位加逗号
+   */
+ export function commaify(param: string | number): string
     /**
    * 
    * @desc    身份证号中间 4 位做掩码

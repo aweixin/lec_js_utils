@@ -127,3 +127,109 @@ function getOS(): OsType;
 ```javascript
 getOS(); // MacOSX
 ```
+
+### getScrollTop
+
+#### 获取窗口滚轴距离顶部的距离
+
+```typescript
+function getScrollTop(): void;
+```
+
+```javascript
+getScrollTop();
+```
+
+### offset
+
+#### 获取元素参数的 offsetTop 与 offsetLeft
+
+```typescript
+function offset(element: HTMLElement): { left: number; top: number };
+```
+
+```javascript
+offset(document.getElementById("app"));
+```
+
+### scrollTo
+
+#### 将当前 window 的滚轴，在某短时间内（ms），纵向滚动到某个位置
+
+```typescript
+function scrollTo(to: number, duration: number): void;
+```
+
+### setScrollTop
+
+#### 设置滚动条距顶部的距离
+
+```typescript
+function setScrollTop(value: number): void;
+```
+
+```javascript
+offset(document.getElementById("app"));
+```
+
+### setScrollTop
+
+#### 设置滚动条距顶部的距离
+
+```typescript
+function setScrollTop(value: number): void;
+```
+
+### windowResize
+
+#### H5 软键盘缩回、弹起回调
+
+- downCallback: 键盘收起时候的回调
+- upCallback: 键盘弹出时候的回调
+
+```typescript
+function windowResize(downCallback: Function, upCallback: Function): void;
+```
+
+```javascript
+windowResize(
+  () => console.log("down"),
+  () => console.log("up")
+);
+```
+
+### commaify
+
+#### 给数字中间每 3 位加逗号
+
+```typescript
+function commaify(param: string | number): string;
+```
+
+```javascript
+commaify(1000000); // 10,000,000
+```
+
+### filterCard
+
+#### 身份证中间生日日期做掩码
+
+```typescript
+function filterCard(param: string | number): string;
+```
+
+```javascript
+utils.filterCard("410987100018420987") === "4109871000****0987"; // true
+```
+
+### filterPhone
+
+#### 电话号码中间四位做掩码
+
+```typescript
+function filterPhone(param: string | number): string;
+```
+
+```javascript
+utils.filterPhone("10801229300") === "108****9300"; // true
+```

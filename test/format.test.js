@@ -2,18 +2,18 @@ describe('Format API:', function () {
 
   describe('#filterPhone()', function () {
     it(`utils.filterPhone(
-      '19801229300'
-  ) === "198****9300"  should return true`, function () {
-      assert(utils.filterPhone("19801229300") === '198****9300')
+      '10801229300'
+  ) === "108****9300"  should return true`, function () {
+      assert(utils.filterPhone("10801229300") === '108****9300')
     });
   });
 
 
   describe('#filterCard()', function () {
     it(`utils.filterCard(
-        '410987199318220987'
-    ) === "4109871993****0987"  should return true`, function () {
-      assert(utils.filterCard("410987199318420987") === '4109871993****0987')
+        '410987100018420987'
+    ) === "4109871000****0987"  should return true`, function () {
+      assert(utils.filterCard("410987100018420987") === '4109871000****0987')
     });
   });
 
