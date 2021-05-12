@@ -233,3 +233,43 @@ function filterPhone(param: string | number): string;
 ```javascript
 utils.filterPhone("10801229300") === "108****9300"; // true
 ```
+
+### debounce
+
+#### 防抖函数-高频触发的事件，如：按钮点击多次，只执行最后一次
+
+- handler: 处理函数
+- delay: 时间段，表示 多长时间后执行这一次函数
+
+```typescript
+function debounce(handler: Function, delay: number): Function;
+```
+
+```javascript
+const b = debounce(() => {
+  console.log("debounce");
+}, 1000);
+
+window.onresize = function () {
+  b();
+};
+```
+
+### throttle
+
+#### 节流，事件在一段时间内按一定频率执行，多用于 resize,input 框输入
+
+- handler: 处理函数
+- delay: 执行频率 次/ms
+
+```typescript
+function throttle(handler: Function, delay: number): Function;
+```
+
+```javascript
+let num = 0;
+const a = throttle(() => {
+  num++;
+  console.log("throttle", num);
+}, 1000);
+```

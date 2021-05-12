@@ -12,3 +12,4 @@ coverage/*
 .idea
 node_modules
 coverage
+demo/

@@ -15,9 +15,47 @@
   <body>
     <div id="app">1</div>
     <script>
-      // console.log(utils.getOS("id", "lee"));
-      const a = utils.filterCard("410987100018420987") === "4109871000****0987";
-      console.log(a);
+      // 节流 delay: 每隔delay 毫秒输出一次。降低评率
+      function throttle(handler, delay) {
+        let timer = true;
+        return function () {
+          if (!timer) {
+            return;
+          }
+          timer = false;
+          handler();
+          setTimeout(() => {
+            timer = true;
+          }, delay);
+        };
+      }
+      let num = 0;
+      const a = throttle(() => {
+        num++;
+        console.log("throttle", num);
+      }, 1000);
+
+      // 防抖函数-只执行最后一次
+      function debounce(handler, delay) {
+        let timer = null;
+        return function () {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(handler, delay);
+        };
+      }
+
+      let number = 0;
+      const b = debounce(() => {
+        number++;
+        console.log("debounce", number);
+      }, 1000);
+
+      window.onresize = function () {
+        a();
+        b();
+      };
     </script>
   </body>
 </html>
