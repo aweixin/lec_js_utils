@@ -78,7 +78,7 @@ declare namespace utils {
     linux = "linux"
   }
   export function getOS(): OsType
-  
+  export function jsonp(url: string, timeout: number): Promise
   /**
    * 
    * @desc 获取滚动条距顶部的距离

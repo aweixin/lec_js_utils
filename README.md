@@ -35,6 +35,20 @@ function arrayEqual(arr1: Array<any>, arr2: Array<any>): boolean;
 console.log(arrayEqual([1, 2], [1, 2])); // true
 ```
 
+### jsonp
+
+#### jsonp 方式实现 get 跨域，可用于获取地图等接口数据
+
+```typescript
+function jsonp(url: string, timeout: number): Promise;
+```
+
+```javascript
+jsonp(
+  "api.map.baidu.com/location/ip?ak=${your.ak}&coor=bd09ll&output=jsonp"
+).then((res) => res);
+```
+
 ### utf8_to_b64
 
 #### 将代入参数使用 base64 编码并且返回

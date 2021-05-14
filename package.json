@@ -13,11 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/licanlican/lic-js-utils.git"
+    "url": "https://github.com/licanlican/lec_js_utils.git"
   },
   "author": "lican",
   "license": "MIT",
-  "homepage": "https://github.com/licanlican/lic-js-utils/blob/master/README.md",
+  "homepage": "https://github.com/licanlican/lec_js_utils/blob/master/README.md",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.3",
