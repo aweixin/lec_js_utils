@@ -59,42 +59,6 @@ function b64_to_utf8(str: string): string;
 console.log(b64_to_utf8("56e75qSN")); // 移植
 ```
 
-### addClass
-
-#### 给元素添加 className
-
-```typescript
-function addClass(ele: HTMLElement, className: string): void;
-```
-
-```javascript
-addClass(document.getElementById("app"), "className");
-```
-
-### hasClass
-
-#### 元素如果有 className,则返回 true,否则返回 false
-
-```typescript
-function hasClass(ele: HTMLElement, className: string): boolean;
-```
-
-```javascript
-hasClass(document.getElementById("app"), "className"); // true
-```
-
-### removeClass
-
-#### 给元素移除 className
-
-```typescript
-function removeClass(ele: HTMLElement, className: string): boolean;
-```
-
-```javascript
-removeClass(document.getElementById("app"), "className"); // true
-```
-
 ### getCookie
 
 #### 获取 cookie 中的某个字段
@@ -152,6 +116,18 @@ function getOS(): OsType;
 getOS(); // MacOSX
 ```
 
+### isInWeiXin
+
+#### 判断是否在微信环境
+
+```typescript
+function isInWeiXin(): boolean;
+```
+
+```javascript
+utils.isInWeiXin(); // chrom 返回 false
+```
+
 ### getScrollTop
 
 #### 获取窗口滚轴距离顶部的距离
@@ -181,18 +157,6 @@ var app = document.getElementById("app");
 copyMsg(app, () => console.log("success")); // 授权剪切板权限之后即可粘贴内容
 ```
 
-### offset
-
-#### 获取元素参数的 offsetTop 与 offsetLeft
-
-```typescript
-function offset(element: HTMLElement): { left: number; top: number };
-```
-
-```javascript
-offset(document.getElementById("app"));
-```
-
 ### scrollTo
 
 #### 将当前 window 的滚轴，在某短时间内（ms），纵向滚动到某个位置
@@ -210,15 +174,7 @@ function setScrollTop(value: number): void;
 ```
 
 ```javascript
-offset(document.getElementById("app"));
-```
-
-### setScrollTop
-
-#### 设置滚动条距顶部的距离
-
-```typescript
-function setScrollTop(value: number): void;
+setScrollTop(100);
 ```
 
 ### windowResize
@@ -346,18 +302,6 @@ function getSize(base: number): void;
 
 ```javascript
 utils.getSize(40); // iphone6 下 根元素 font-size 为20 px
-```
-
-### isInWeiXin
-
-#### 判断是否在微信环境
-
-```typescript
-function isInWeiXin(): boolean;
-```
-
-```javascript
-utils.isInWeiXin(); // chrom 返回 false
 ```
 
 ### deepClone
