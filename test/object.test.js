@@ -53,4 +53,15 @@ describe('Object API:', function () {
             assert.notEqual(utils.isEmptyObject([]), true)
         });
     });
+
+
+    describe('#getTypeof()', function () {
+        it(`utils.getTypeof([]) should return "array"`, function () {
+            assert.equal(utils.getTypeof([]), "array")
+        });
+
+        it(`utils.getTypeof(new Map([])) should return "array"`, function () {
+            assert.equal(utils.getTypeof(new Map([])), "map")
+        });
+    });
 })

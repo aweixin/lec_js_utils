@@ -16,7 +16,8 @@ declare namespace utils {
    * @param  {String} cls 
    */
   export function addClass(ele: HTMLElement, cls: string): void
-  
+  export function utf8_to_b64 (str: string): string
+  export function b64_to_utf8 (str: string): string
   /**
    * 
    * @desc 判断元素是否有某个class
@@ -84,6 +85,7 @@ declare namespace utils {
    */
   export function getScrollTop(): void
 
+  export function copyMsg(el: HTMLElement, callback: Function): void
   /**
    * 
    * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
@@ -121,20 +123,19 @@ declare namespace utils {
   
   export function throttle(handler: Function, delay: number): Function
 
-  /**
-   * @desc 根据keycode获得键名
-   * @param  {Number} keycode 
-   * @return {String}
-   */
-  export function getKeyName(keycode: number): string
+  // H5 中设置根元素 font-size
+  export function getSize(base: number): void
+  // 当前环境是否在微信浏览器环境
+  export function isInWeiXin(): boolean
 
+  export function once(handler: Function): Function
   /**
    * @desc 深拷贝，支持常见类型
    * @param {Any} values
    * @return {Any}
    */
   export function deepClone(values: any): any
-  
+  export function getTypeof(object: any): string
   /**
    * 
    * @desc   判断`obj`是否为空
@@ -191,6 +192,8 @@ declare namespace utils {
    */
   export function isPhoneNum(str: string | number): boolean
  
+  export function isInt(str: string | number): boolean
+  export function isSpecialCode(str: string | number): boolean
   /**
    * 
    * @desc   判断是否为URL地址
@@ -214,6 +217,7 @@ declare namespace utils {
    */
   export function isSupportWebP(): boolean
 
+  export function session(key: string, value?: any) : any
   /**
    * @desc   格式化${startTime}距现在的已过时间
    * @param  {Date} startTime 

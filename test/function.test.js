@@ -44,4 +44,23 @@ describe('Function API:', function () {
         })
     });
 
+    describe('#once()', function () {
+        const once = utils.once
+        it(`utils.once 返回一个function，这个函数 只执行一次`, function (done) {
+            let num = 0
+            let interval = null
+            let onceFunc = once(() => num++)
+            interval = setInterval(function () {
+                onceFunc()
+            }, 2)
+            setTimeout(() => {
+                assert(num === 1)
+                done()
+                clearInterval(interval)
+            }, 65)
+
+        })
+    });
+
+
 });

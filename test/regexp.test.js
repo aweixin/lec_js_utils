@@ -165,4 +165,36 @@ describe('Regexp API:', function () {
 		});
 	});
 
+
+	describe('#isInt() 判断是不是一个正整数', function () {
+		it('utils.isInt("18") 应该返回 true ', function () {
+			assert(utils.isInt("18"))
+		});
+		it('utils.isInt(18) 应该返回 true ', function () {
+			assert(utils.isInt(18))
+		});
+		it('utils.isInt(0) 应该返回 false ', function () {
+			assert(!utils.isInt(0))
+		});
+		it('utils.isInt("-1") 应该返回 false ', function () {
+			assert(!utils.isInt("-1"))
+		});
+		it('utils.isInt(-1) 应该返回 false ', function () {
+			assert(!utils.isInt(-1))
+		});
+		it('utils.isInt(18.1) 应该返回 false ', function () {
+			assert(!utils.isInt(18.1))
+		});
+	});
+
+
+	describe('#isSpecialCode() 判断是否含有特殊字符', function () {
+		it('utils.isSpecialCode("埃美柯") 应该返回 false ', function () {
+			assert(!utils.isSpecialCode("埃美柯"))
+		});
+
+		it('utils.isSpecialCode("埃美柯.-") 应该返回 true ', function () {
+			assert(utils.isSpecialCode("埃美柯.-"))
+		});
+	});
 });

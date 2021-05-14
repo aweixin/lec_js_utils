@@ -35,6 +35,30 @@ function arrayEqual(arr1: Array<any>, arr2: Array<any>): boolean;
 console.log(arrayEqual([1, 2], [1, 2])); // true
 ```
 
+### utf8_to_b64
+
+#### 将代入参数使用 base64 编码并且返回
+
+```typescript
+function utf8_to_b64(str: string): string;
+```
+
+```javascript
+console.log(utf8_to_b64("移植")); // 56e75qSN"
+```
+
+### b64_to_utf8
+
+#### 将使用同样规则编码的字符串使用逆规则解码
+
+```typescript
+function b64_to_utf8(str: string): string;
+```
+
+```javascript
+console.log(b64_to_utf8("56e75qSN")); // 移植
+```
+
 ### addClass
 
 #### 给元素添加 className
@@ -138,6 +162,23 @@ function getScrollTop(): void;
 
 ```javascript
 getScrollTop();
+```
+
+### copyMsg
+
+#### 将浏览器中输入框的内容写入剪切板--仅支持 input 和 textArea
+
+```typescript
+function copyMsg(el: HTMLElement, callback: Function): void;
+```
+
+```html
+<input id="app" value="123" />
+```
+
+```javascript
+var app = document.getElementById("app");
+copyMsg(app, () => console.log("success")); // 授权剪切板权限之后即可粘贴内容
 ```
 
 ### offset
@@ -272,4 +313,144 @@ const a = throttle(() => {
   num++;
   console.log("throttle", num);
 }, 1000);
+```
+
+### once
+
+#### 只执行一次的函数
+
+- handler: 处理函数
+
+```typescript
+function once(handler: Function): Function;
+```
+
+```javascript
+let a = once(() => console.log("aa"));
+setInterval(() => {
+  a();
+}, 1);
+```
+
+### getSize
+
+#### 设置 H5 根元素的 font-size
+
+- 用于 rem 布局
+- 设计稿宽度 750 物理像素
+- dpr = 2(iphone6/7/8 下开发视图)
+
+```typescript
+function getSize(base: number): void;
+```
+
+```javascript
+utils.getSize(40); // iphone6 下 根元素 font-size 为20 px
+```
+
+### isInWeiXin
+
+#### 判断是否在微信环境
+
+```typescript
+function isInWeiXin(): boolean;
+```
+
+```javascript
+utils.isInWeiXin(); // chrom 返回 false
+```
+
+### deepClone
+
+#### 深拷贝对象
+
+```typescript
+function deepClone(values: any): any;
+```
+
+```javascript
+const obj = { a: 1 };
+const o = utils.deepClone(obj);
+
+o.a = 2;
+```
+
+### isEmptyObject
+
+#### 判断一个对象是否没有一个属性
+
+```typescript
+function deepClone(values: any): any;
+```
+
+```javascript
+const obj = { a: 1 };
+const o = utils.deepClone(obj);
+
+o.a = 2;
+```
+
+### getTypeof
+
+#### 准确的判断对象的类型
+
+```typescript
+function getTypeof(object: any): string;
+```
+
+```javascript
+utils.getTypeof(new Map([])); // map
+```
+
+### isInt
+
+#### 判断是不是一个正整数
+
+```typescript
+function isInt(str: string | number): boolean;
+```
+
+```javascript
+utils.isInt(0); // false
+```
+
+### isSpecialCode
+
+#### 判断含不含有特殊字符
+
+```typescript
+function isSpecialCode(str: string | number): boolean;
+```
+
+```javascript
+utils.isSpecialCode("埃美柯.-"); // true
+```
+
+### session
+
+#### window.localStoreage 方法封装
+
+- 没有第二个参数时为存储
+- 有第二个参数时为读取，没获取到则返回空字符串''
+
+```typescript
+function session(key: string, value?: any): any;
+```
+
+```javascript
+session("name", "小红"); // true
+```
+
+### monthDays
+
+#### 获取代入的时间对象的参数，当前月总共多少天
+
+- 参数为一个时间对象
+
+```typescript
+function monthDays(date: Date): number;
+```
+
+```javascript
+monthDays(new Date("2020/2/11")); // 29
 ```
