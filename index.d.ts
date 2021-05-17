@@ -218,20 +218,8 @@ declare namespace utils {
   export function isSupportWebP(): boolean
 
   export function session(key: string, value?: any) : any
-  /**
-   * @desc   格式化${startTime}距现在的已过时间
-   * @param  {Date} startTime 
-   * @return {String}
-   */
-  export function formatPassTime(startTime: Date): string
 
-  /**
-   * 
-   * @desc   格式化现在距${endTime}的剩余时间
-   * @param  {Date} endTime  
-   * @return {String}
-   */
-  export function formatRemainTime(endTime: Date): string
+
 
   /**
    * 
@@ -255,15 +243,13 @@ declare namespace utils {
   * @return {Number}
   */
   export function monthDays(date: Date): number
-  
-  /**
-   * @desc ${startTime - endTime}的剩余时间,startTime大于endTime时，均返回0
-   * @param { Date | String } startTime
-   * @param { Date | String } endTime
-   * @returns { Object } { d, h, m, s } 天 时 分 秒
-   */
-  export function timeLeft(startTime: Date | string, endTime: Date | string): { d: number, h: number, m: number, s: number }
-
+  type dateType = {
+    day: number,
+    hour: number,
+    min: number,
+    seconds: number
+  }
+export function formatTime (timer: number): dateType
   /**
    * 
    * @desc   url参数转对象

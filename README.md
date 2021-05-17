@@ -279,6 +279,62 @@ function filterPhone(param: string | number): string;
 utils.filterPhone("10801229300") === "108****9300"; // true
 ```
 
+### digitUppercase
+
+#### 现金金额转大写
+
+```typescript
+export function digitUppercase(n: number): string;
+```
+
+```javascript
+utils.digitUppercase(10801229300.69) ===
+  "壹佰零捌亿零壹佰贰拾贰万玖仟叁佰元陆角玖分"; // true
+```
+
+### formatTime
+
+#### 将代入的毫秒数计算为天、时、分、秒
+
+```typescript
+type dateType = {
+  day: number;
+  hour: number;
+  min: number;
+  seconds: number;
+};
+export function formatTime(timer: number): dateType;
+```
+
+```javascript
+const timer = formatTime(172800000 + 36000000 + 120000 + 30000);
+console.log(timer);
+```
+
+### isLeapYear
+
+#### 判断是否是闰年
+
+```typescript
+function isLeapYear(year: number): boolean;
+```
+
+```javascript
+utils.isLeapYear(2021); // false
+```
+
+### isSameDay
+
+#### 判断是否是同一天
+
+```typescript
+function isSameDay(date1: Date, date2: Date): boolean;
+```
+
+```javascript
+utils.isSameDay(new Date(), new Date()); // true
+```
+
 ### debounce
 
 #### 防抖函数-高频触发的事件，如：按钮点击多次，只执行最后一次
@@ -418,6 +474,54 @@ function isSpecialCode(str: string | number): boolean;
 utils.isSpecialCode("埃美柯.-"); // true
 ```
 
+### isEmail
+
+#### 校验是否是邮箱
+
+```typescript
+function isEmail(str: string): boolean;
+```
+
+```javascript
+utils.isEmail("123"); // false
+```
+
+### isIdCard
+
+#### 校验是否是邮箱
+
+```typescript
+function isIdCard(str: string): boolean;
+```
+
+```javascript
+utils.isIdCard("123"); // false
+```
+
+### isPhoneNum
+
+#### 校验是否是电话号码
+
+```typescript
+function isPhoneNum(str: string): boolean;
+```
+
+```javascript
+utils.isPhoneNum("123"); // false
+```
+
+### isUrl
+
+#### 校验是否是 URL
+
+```typescript
+function isUrl(str: string): boolean;
+```
+
+```javascript
+utils.isUrl("http://git.daojia-inc.com/"); // true
+```
+
 ### session
 
 #### window.localStoreage 方法封装
@@ -445,4 +549,16 @@ function monthDays(date: Date): number;
 
 ```javascript
 monthDays(new Date("2020/2/11")); // 29
+```
+
+### randomNum
+
+#### 生成随机整数
+
+```typescript
+function randomNum(min: number, max: number): number;
+```
+
+```javascript
+randomNum(2.1， 5.1); // 5
 ```
