@@ -1,8 +1,8 @@
 {
-  "name": "lec_js_utils",
-  "version": "1.0.2",
+  "name": "h-bunny",
+  "version": "1.0.0",
   "description": "一个 JS 工具库",
-  "main": "min/lec_js_utils.min.js",
+  "main": "min/h-bunny.min.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "node script/build.js",
