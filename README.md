@@ -1,22 +1,22 @@
-# lec_js_utils
+# h-bunny
 
 一个 JS 工具库
 
 ## 使用方式
 
 ```shell
-npm install lec_js_utils
+npm install h-bunny
 ```
 
 ```javascript
 // es6模块系统
-import { onHashChange } from "lec_js_utils";
+import { onHashChange } from "h-bunny";
 onHashChange(() => console.log("onHashChange"));
 
 // 浏览器
-
+s
 // 引入
-<script src="lec_js_utils.min.js"></script>;
+<script src="h-bunny.min.js"></script>;
 // 使用
 utils.onHashChange(() => console.log("HashChange"));
 ```
