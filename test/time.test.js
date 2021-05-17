@@ -48,6 +48,25 @@ describe('Time API:', function () {
             assert(utils.formatTime(208950000).day === 2 && utils.formatTime(208950000).seconds === 30)
         });
     });
+    describe('#formatDate()', function () {
+
+        it(`utils.formatDate 格式化参数，输出时间格式`, function () {
+            const year = new Date().getFullYear()
+            const month = new Date().getMonth() + 1 >= 10 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1)
+            const day = new Date().getDate() >= 10 ? new Date().getDate() : '0' + new Date().getDate()
+            assert(utils.formatDate(new Date(), "YYYY-MM-DD") === `${year}-${month}-${day}`)
+        });
+
+        it(`utils.formatDate 格式化参数，输出时间格式`, function () {
+            assert(utils.formatDate(1621243936598, "YYYY-MM-DD") === "2021-05-17")
+        });
+
+        it(`utils.formatDate 格式化参数，输出时间格式`, function () {
+            assert(utils.formatDate("2021/5/17", "YYYY-MM-DD") === "2021-05-17")
+        });
+    });
+
+
     describe('#isLeapYear()', function () {
         it(`utils.isLeapYear(2008) should return true`, function () {
             assert(utils.isLeapYear(2008))

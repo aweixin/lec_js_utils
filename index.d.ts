@@ -116,19 +116,21 @@ declare namespace utils {
    * @param {Function} downCb 当软键盘弹起后，缩回的回调
    * @param {Function} upCb 当软键盘弹起的回调
    */
-  export function windowResize(downCb: () => void, upCb: () => void): void
+   type debounceType = () => any | void
+
+  export function windowResize(downCb:debounceType, upCb:debounceType): void
 
 
-  export function debounce(handler: Function, delay: number): Function
+  export function debounce(handler: debounceType, delay: number): debounceType
   
-  export function throttle(handler: Function, delay: number): Function
+  export function throttle(handler: debounceType, delay: number): debounceType
 
   // H5 中设置根元素 font-size
   export function getSize(base: number): void
   // 当前环境是否在微信浏览器环境
   export function isInWeiXin(): boolean
 
-  export function once(handler: Function): Function
+  export function once(handler: debounceType): debounceType
   /**
    * @desc 深拷贝，支持常见类型
    * @param {Any} values
@@ -250,6 +252,8 @@ declare namespace utils {
     seconds: number
   }
 export function formatTime (timer: number): dateType
+
+export function formatDate (param: number | Date | string): string
   /**
    * 
    * @desc   url参数转对象
@@ -299,28 +303,28 @@ export function formatTime (timer: number): dateType
    * @desc    监听 onHashchange 事件 
    * @param  {Function} 
    */
-    export function onHashChange(callback: Function): void
+    export function onHashChange(callback: debounceType): boolean
 
   /**
    * 
    * @desc    监听 onPopstate 事件 
    * @param  {Function} 
    */
-   export function onPopState(callback: Function): void
+   export function onPopState(callback: debounceType): boolean
 
    /**
    * 
    * @desc    监听 onPushState 事件 
    * @param  {Function} 
    */
-    export function onPushState(callback: Function): void
+    export function onPushState(callback: debounceType): boolean
 
      /**
    * 
    * @desc    监听 onReplaceState 事件 
    * @param  {Function} 
    */
-      export function onReplaceState(callback: Function): void
+      export function onReplaceState(callback: debounceType): boolean
 
       type locationType = {
         lng: string, lat: string

@@ -17,8 +17,20 @@
     <input id="app" value="123" />
 
     <script>
-      const timer = utils.isSameDay(new Date(), new Date()); // true
-      console.log(timer);
+      // const timer = dayjs(1318781876406).format();
+
+      // console.log(timer);
+
+      // var d = new Date(2018, 8, 18);
+      // var day = dayjs(d);
+      // console.log(day.format());
+
+      // const b = dayjs("1970-00-00");
+      // console.log(b.format("hh:mm:ss MM*DD--YYYY "));
+      const str = utils.formatDate("5/12/2021", "YYYY-MM-DD");
+      const str1 = utils.formatDate(1621243936598, "YYYY-MM-DD");
+      console.log(str);
+      console.log(str1);
     </script>
   </body>
 </html>

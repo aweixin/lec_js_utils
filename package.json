@@ -18,7 +18,9 @@
   "author": "lican",
   "license": "MIT",
   "homepage": "https://github.com/licanlican/lec_js_utils/blob/master/README.md",
-  "dependencies": {},
+  "dependencies": {
+    "dayjs": "^1.10.4"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

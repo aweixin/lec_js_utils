@@ -48,21 +48,4 @@ describe('Url API:', function () {
             assert(utils.getRequest("name", "?id=10&name=lee") === 'lee')
         });
     });
-
-
-    describe('#windowURLTurnToOthers()', function () {
-        let location = window.location
-        it(`utils.windowURLTurnToOthers(callback) should listen the handler`, function () {
-            utils.onHashChange(() => console.log("onHashChange triggered"))
-            utils.onPopState(() => console.log("onPopState triggered"))
-            utils.onPushState(() => console.log("onPushState triggered"))
-            utils.onReplaceState(() => console.log("onReplaceState triggered"))
-
-            // 触发resize事件
-            window.dispatchEvent(new Event('onHashchange'));
-            // window.location = "www.baidu.com"
-        })
-        after(function () {
-        })
-    });
 })

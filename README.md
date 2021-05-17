@@ -311,6 +311,21 @@ const timer = formatTime(172800000 + 36000000 + 120000 + 30000);
 console.log(timer);
 ```
 
+### formatDate
+
+#### 格式化时间为各种格式
+
+```typescript
+export function formatDate(param: number | Date | string): string;
+```
+
+```javascript
+utils.formatDate("5/12/2021", "YYYY-MM-DD"); // 2021-05-12
+utils.formatDate(1621243936598, "YYYY-MM-DD"); // "2021-05-17"
+utils.formatDate(new Date().setDate(1), "YYYY-MM**DD"); // "2021-05**01"
+utils.formatDate(new Date().getTime(), "YYYY/MM/DD hh:mm:ss"); // "2021/05/17 05:43:35"
+```
+
 ### isLeapYear
 
 #### 判断是否是闰年
@@ -562,3 +577,40 @@ function randomNum(min: number, max: number): number;
 ```javascript
 randomNum(2.1， 5.1); // 5
 ```
+
+### getRequest
+
+#### 获取 URL 上的参数
+
+```typescript
+function getRequest(param: string, search?: string): string;
+```
+
+```javascript
+getRequest("page", "?page=1"); // 1
+```
+
+### onHashChange
+
+#### 监听 location.hash 变化
+
+```typescript
+export function onHashChange(callback: Function): boolean;
+```
+
+```javascript
+const callback = () => console.log("success");
+onHashChange(callback);
+```
+
+### onPopState
+
+#### 监听 popstate
+
+### onPushState
+
+#### 监听 pushState
+
+### onReplaceState
+
+#### 监听 replaceState

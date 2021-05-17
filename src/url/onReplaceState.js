@@ -13,6 +13,7 @@ const onReplaceState = callback => {
   window.history.replaceState = _historyWrap("replaceState");
   window.addEventListener("replaceState", function (event) {
     callback(event)
+    return true
   });
 }
 module.exports = onReplaceState

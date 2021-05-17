@@ -5,6 +5,7 @@
 function onHashChange(callback) {
   window.addEventListener("hashchange", function (event) {
     callback(event)
+    return true
   });
 }
 module.exports = onHashChange

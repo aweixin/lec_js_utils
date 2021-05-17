@@ -17,6 +17,7 @@ function onPushState(callback) {
   window.history.pushState = _historyWrap("pushState");
   window.addEventListener("pushState", function (event) {
     callback(event)
+    return true
   });
 }
 module.exports = onPushState
