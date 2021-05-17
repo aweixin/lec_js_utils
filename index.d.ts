@@ -336,6 +336,19 @@ declare namespace utils {
    */
       export function onReplaceState(callback: Function): void
 
+      type locationType = {
+        lng: string, lat: string
+      }
+/**
+ * @description:利用百度地图进行定位 
+ */
+export function locateByBaidu (ak: string): locationType
+/**
+ * @description:利用5navigator.location 进行丁文 
+ */ 
+ export function locationByNavigator (timeout: string | number): locationType
+
+
 }
 
 declare module "utils" {

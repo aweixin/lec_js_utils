@@ -35,6 +35,40 @@ function arrayEqual(arr1: Array<any>, arr2: Array<any>): boolean;
 console.log(arrayEqual([1, 2], [1, 2])); // true
 ```
 
+### locateByBaidu
+
+#### 利用百度地图获取当前定位，返回当前定位的经纬度
+
+```typescript
+type locationType = {
+  lng: string;
+  lat: string;
+};
+export function locateByBaidu(ak: string): locationType;
+```
+
+```javascript
+locateByBaidu(your ak)
+```
+
+### locationByNavigator
+
+#### H5 navigator 定位方式,返回经纬度
+
+- timeout 超时时间
+
+```typescript
+type locationType = {
+  lng: string;
+  lat: string;
+};
+export function locationByNavigator(timeout: string | number): locationType;
+```
+
+```javascript
+locationByNavigator(5000);
+```
+
 ### jsonp
 
 #### jsonp 方式实现 get 跨域，可用于获取地图等接口数据
