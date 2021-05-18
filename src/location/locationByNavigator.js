@@ -28,7 +28,7 @@ function locationByNavigator(timeout) {
           reject({ status: "error", data: { message: "navigator.geolocation定位方式失败", err } })
         }, {
           enableHighAccuracy: true,
-          timeout: timeout,
+          timeout: timeout || 5000,
           maximumAge: 0
         })
       }

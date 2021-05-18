@@ -27,9 +27,9 @@ utils.onHashChange(() => console.log("HashChange"));
 
 #### 参与比较的两个数组，如果每个元素都相等，返回 true,否则返回 false
 
-```typescript
-function arrayEqual(arr1: Array<any>, arr2: Array<any>): boolean;
-```
+#### 参数
+
+- 参与比较的两个数组
 
 ```javascript
 console.log(arrayEqual([1, 2], [1, 2])); // true
@@ -37,45 +37,39 @@ console.log(arrayEqual([1, 2], [1, 2])); // true
 
 ### locateByBaidu
 
-#### 利用百度地图获取当前定位，返回当前定位的经纬度
+#### 利用百度地图获取当前定位，返回一个携带当前定位经纬度的 promise
 
-```typescript
-type locationType = {
-  lng: string;
-  lat: string;
-};
-export function locateByBaidu(ak: string): locationType;
-```
+#### 参数
+
+- 百度地图 ak
 
 ```javascript
-locateByBaidu(your ak)
+locateByBaidu(your ak).then({lng, lat} => {
+  // do sth
+})
 ```
 
 ### locationByNavigator
 
-#### H5 navigator 定位方式,返回经纬度
+#### H5 navigator 定位方式,返回一个写到当前定位经纬度的 promise
 
-- timeout 超时时间
+#### 参数
 
-```typescript
-type locationType = {
-  lng: string;
-  lat: string;
-};
-export function locationByNavigator(timeout: string | number): locationType;
-```
+- timeout 超时时间, 默认 5S
 
 ```javascript
-locationByNavigator(5000);
+locationByNavigator().then(({lng, lat} => {
+  // do sth
+});
 ```
 
 ### jsonp
 
-#### jsonp 方式实现 get 跨域，可用于获取地图等接口数据
+#### jsonp 方式实现 get 跨域，可用于获取地图等接口数据，返回一个携带返回信息的 promise
 
-```typescript
-function jsonp(url: string, timeout: number): Promise;
-```
+#### 参数
+
+- timeout 超时时间, 默认 5S
 
 ```javascript
 jsonp(
@@ -87,9 +81,9 @@ jsonp(
 
 #### 将代入参数使用 base64 编码并且返回
 
-```typescript
-function utf8_to_b64(str: string): string;
-```
+#### 参数
+
+- 转码的字符
 
 ```javascript
 console.log(utf8_to_b64("移植")); // 56e75qSN"
@@ -99,9 +93,9 @@ console.log(utf8_to_b64("移植")); // 56e75qSN"
 
 #### 将使用同样规则编码的字符串使用逆规则解码
 
-```typescript
-function b64_to_utf8(str: string): string;
-```
+#### 参数
+
+- 解码的字符
 
 ```javascript
 console.log(b64_to_utf8("56e75qSN")); // 移植
@@ -111,34 +105,22 @@ console.log(b64_to_utf8("56e75qSN")); // 移植
 
 #### 获取 cookie 中的某个字段
 
-```typescript
-function getCookie(name: string): string;
-```
-
 ```javascript
 getCookie("id");
 ```
 
 ### getExplore
 
-#### 获取浏览器的版本，浏览器类型
+#### 获取浏览器的版本，返回浏览器类型和版本
 
-```typescript
-enum BrowserType {
-  IE = "IE",
-  EDGE = "EDGE",
-  Firefox = "Firefox",
-  Chrome = "Chrome",
-  Opera = "Opera",
-  Safari = "Safari",
-  NOT_FUND = "not fund",
-}
-interface getExploreData {
-  browser: BrowserType;
-  version: string;
-}
-function getExplore(): getExploreData;
-```
+#### 可能得到浏览器的值
+
+- IE
+- EDGE
+- Firefox
+- Chrome
+- Opera
+- Safari
 
 ```javascript
 getExplore(); // {browser: "Chrome"version: "90.0.4430.93"}
@@ -146,19 +128,16 @@ getExplore(); // {browser: "Chrome"version: "90.0.4430.93"}
 
 ### getOS
 
-#### 获取当前系统，ios, android, macos, windows 等
+#### 获取当前系统类型
 
-```typescript
-enum OsType {
-  ios = "ios",
-  android = "android",
-  windowsPhone = "windowsPhone",
-  MacOSX = "MacOSX",
-  windows = "windows",
-  linux = "linux",
-}
-function getOS(): OsType;
-```
+#### 可能得到的值
+
+- ios
+- android
+- windowsPhone
+- MacOSX
+- windows
+- linux
 
 ```javascript
 getOS(); // MacOSX
@@ -168,21 +147,13 @@ getOS(); // MacOSX
 
 #### 判断是否在微信环境
 
-```typescript
-function isInWeiXin(): boolean;
-```
-
 ```javascript
 utils.isInWeiXin(); // chrom 返回 false
 ```
 
 ### getScrollTop
 
-#### 获取窗口滚轴距离顶部的距离
-
-```typescript
-function getScrollTop(): void;
-```
+#### 获取窗口滚轴距离顶部的距离并返回
 
 ```javascript
 getScrollTop();
@@ -192,9 +163,10 @@ getScrollTop();
 
 #### 将浏览器中输入框的内容写入剪切板--仅支持 input 和 textArea
 
-```typescript
-function copyMsg(el: HTMLElement, callback: Function): void;
-```
+#### 参数
+
+- el: HTML 元素-input 或者 textArea
+- callback: 写入剪切板之后的回调
 
 ```html
 <input id="app" value="123" />
@@ -209,6 +181,11 @@ copyMsg(app, () => console.log("success")); // 授权剪切板权限之后即可
 
 #### 将当前 window 的滚轴，在某短时间内（ms），纵向滚动到某个位置
 
+#### 参数
+
+- to: 将要滚动到的位置
+- duration: 时间段
+
 ```typescript
 function scrollTo(to: number, duration: number): void;
 ```
@@ -217,9 +194,9 @@ function scrollTo(to: number, duration: number): void;
 
 #### 设置滚动条距顶部的距离
 
-```typescript
-function setScrollTop(value: number): void;
-```
+#### 参数
+
+- to: 设置的位置
 
 ```javascript
 setScrollTop(100);
@@ -227,14 +204,12 @@ setScrollTop(100);
 
 ### windowResize
 
+#### 参数
+
 #### H5 软键盘缩回、弹起回调
 
 - downCallback: 键盘收起时候的回调
 - upCallback: 键盘弹出时候的回调
-
-```typescript
-function windowResize(downCallback: Function, upCallback: Function): void;
-```
 
 ```javascript
 windowResize(
@@ -455,7 +430,7 @@ o.a = 2;
 
 ### getTypeof
 
-#### 准确的判断对象的类型
+#### 判断对象的类型
 
 ```typescript
 function getTypeof(object: any): string;
@@ -503,7 +478,7 @@ utils.isEmail("123"); // false
 
 ### isIdCard
 
-#### 校验是否是邮箱
+#### 校验是否是身份证号码
 
 ```typescript
 function isIdCard(str: string): boolean;
