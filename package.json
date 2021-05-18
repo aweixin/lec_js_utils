@@ -1,9 +1,8 @@
 {
   "name": "h-bunny",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "一个 JS 工具库",
   "main": "min/h-bunny.min.js",
-  "types": "index.d.ts",
   "scripts": {
     "build": "node script/build.js",
     "build-copy": "node script/build-copy.js",
