@@ -35,6 +35,34 @@ utils.onHashChange(() => console.log("HashChange"));
 console.log(arrayEqual([1, 2], [1, 2])); // true
 ```
 
+### onError
+
+#### 捕获页面的 JS 报错或者 Promise 错误(reject)事件，同时监听了 onerror 与 onunhandledrejection。
+
+#### 参数
+
+- 回调函数，任何一种错误触发，都会执行此回调函数
+
+```javascript
+const callback = (e) => {
+  console.log(e);
+};
+try {
+  console.log(a);
+} catch (error) {
+  utils.onError(callback);
+}
+```
+
+### onVisibilityChange
+
+#### 监听页面是否在前台显示（如果该页面只是被其它窗口挡住,document.hidden 仍然为 False）
+
+#### 参数
+
+- visibilityCallback ： 页面前台展示时候的回调函数
+- hiddenCallback：页面被隐藏时候的回调函数
+
 ### locateByBaidu
 
 #### 利用百度地图获取当前定位，返回一个携带当前定位经纬度的 promise
