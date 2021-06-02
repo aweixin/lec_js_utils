@@ -35,6 +35,29 @@ utils.onHashChange(() => console.log("HashChange"));
 console.log(arrayEqual([1, 2], [1, 2])); // true
 ```
 
+### isNetAvailable
+
+#### 检测当前环境网络状态,接受对象参数
+
+#### 参数
+
+- code： 无网络时的状态码（自定义）
+
+```javascript
+setInterval(() => {
+  utils
+    .isNetAvailable(-1)
+    .then(() => {
+      console.log("网络正常");
+    })
+    .catch((err) => {
+      if (err.code === -1) {
+        console.log("网络错误");
+      }
+    });
+}, 1000);
+```
+
 ### onError
 
 #### 捕获页面的 JS 报错或者 Promise 错误(reject)事件，同时监听了 onerror 与 onunhandledrejection。
@@ -454,6 +477,20 @@ const obj = { a: 1 };
 const o = utils.deepClone(obj);
 
 o.a = 2;
+```
+
+### qsParam
+
+#### 序列化对象为请求参数
+
+```typescript
+function qsParam(object: object): string;
+```
+
+```javascript
+const obj = { a: 1, b: 2 };
+utils.qsParam(obj);
+// ?a=1&b=2
 ```
 
 ### getTypeof

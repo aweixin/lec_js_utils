@@ -27,10 +27,18 @@
 
       // const b = dayjs("1970-00-00");
       // console.log(b.format("hh:mm:ss MM*DD--YYYY "));
-      const str = utils.formatDate("5/12/2021", "YYYY-MM-DD");
-      const str1 = utils.formatDate(1621243936598, "YYYY-MM-DD");
-      console.log(str);
-      console.log(str1);
+      const str = utils.isNetAvailable(-1);
+      setInterval(() => {
+        utils.isNetAvailable(-1)
+          .then(() => {
+            console.log("网络正常");
+          })
+          .catch((err) => {
+            if (err.code === -1) {
+              console.log("网络错误");
+            }
+          });
+      }, 1000);
     </script>
   </body>
 </html>

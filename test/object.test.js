@@ -64,4 +64,30 @@ describe('Object API:', function () {
             assert.equal(utils.getTypeof(new Map([])), "map")
         });
     });
+
+
+    describe('#qsParam()', function () {
+        it(`qsParam: 序列化对象参数`, function () {
+            assert.equal(utils.qsParam({
+                a: 1,
+                b: 2,
+                c: 3
+            }), "?a=1&b=2&c=3")
+        });
+
+        it(`qsParam: 序列化对象参数`, function () {
+            assert.equal(utils.qsParam({
+                a: 0,
+                b: 2,
+                c: 3
+            }), "?a=0&b=2&c=3")
+        });
+        it(`qsParam: 序列化对象参数`, function () {
+            assert.equal(utils.qsParam({
+                a: false,
+                b: "a",
+                c: 3
+            }), "?a=false&b=a&c=3")
+        });
+    });
 })
