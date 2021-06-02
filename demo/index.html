@@ -27,18 +27,9 @@
 
       // const b = dayjs("1970-00-00");
       // console.log(b.format("hh:mm:ss MM*DD--YYYY "));
-      const str = utils.isNetAvailable(-1);
-      setInterval(() => {
-        utils.isNetAvailable(-1)
-          .then(() => {
-            console.log("网络正常");
-          })
-          .catch((err) => {
-            if (err.code === -1) {
-              console.log("网络错误");
-            }
-          });
-      }, 1000);
+      const str = utils.loadScript(
+        "https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.cjs.js"
+      );
     </script>
   </body>
 </html>
