@@ -128,6 +128,18 @@ jsonp(
 ).then((res) => res);
 ```
 
+### loadScript
+
+#### loadScript 方式实现加载 JS 标签
+
+#### 参数
+
+- url
+
+```javascript
+loadScript("https://cdn.bootcdn.net/ajax/libs/vue/3.0.11/vue.cjs.js");
+```
+
 ### utf8_to_b64
 
 #### 将代入参数使用 base64 编码并且返回
@@ -209,8 +221,6 @@ utils.isInWeiXin(); // chrom 返回 false
 ```javascript
 utils.isInAlipay(); // chrom 返回 false
 ```
-
-
 
 ### getScrollTop
 
