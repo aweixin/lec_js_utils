@@ -202,6 +202,16 @@ getOS(); // MacOSX
 utils.isInWeiXin(); // chrom 返回 false
 ```
 
+### isInAlipay
+
+#### 判断是否在支付宝环境
+
+```javascript
+utils.isInAlipay(); // chrom 返回 false
+```
+
+
+
 ### getScrollTop
 
 #### 获取窗口滚轴距离顶部的距离并返回

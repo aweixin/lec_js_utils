@@ -21,4 +21,11 @@ describe('H5:', function () {
       assert(utils.isInWeiXin() === false)
     });
   });
+
+
+  describe('#isInAlipay()', function () {
+    it(`isInAlipay 判断当前环境是否在支付宝环境`, function () {
+      assert(utils.isInAlipay() === false)
+    });
+  });
 });
