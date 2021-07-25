@@ -94,16 +94,16 @@
  * @return {*} 新的节流函数
  */
 function throttle(handler, delay) {
-    let timer = true;
-    return function () {
-        if (!timer) {
-            return;
-        }
-        timer = false;
-        handler();
-        setTimeout(() => {
-            timer = true;
-        }, delay);
-    };
+  let timer = true;
+  return function (...args) {
+    if (!timer) {
+      return;
+    }
+    timer = false;
+    handler.apply(this, args);
+    setTimeout(() => {
+      timer = true;
+    }, delay);
+  };
 }
-module.exports = throttle
+module.exports = throttle;

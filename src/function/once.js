@@ -3,19 +3,13 @@
  * @description: 只执行一次的函数
  */
 function once(handler) {
-  let btn = true
-  const _this = this
+  let btn = true;
   return function () {
     if (btn) {
-      const args = arguments
-      handler.call(_this, ...args)
-      btn = false
+      const args = arguments;
+      handler.call(this, ...args);
+      btn = false;
     }
-
-  }
+  };
 }
-module.exports = once
-
-
-
-
+module.exports = once;

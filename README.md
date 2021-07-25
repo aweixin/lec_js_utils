@@ -1,4 +1,4 @@
-# h-bunny
+# burries
 
 一个 JS 工具库
 
@@ -6,6 +6,7 @@
 
 ```shell
 npm install h-bunny
+
 ```
 
 ```javascript
@@ -14,7 +15,6 @@ import { onHashChange } from "h-bunny";
 onHashChange(() => console.log("onHashChange"));
 
 // 浏览器
-s
 // 引入
 <script src="h-bunny.min.js"></script>;
 // 使用
@@ -102,7 +102,7 @@ locateByBaidu(your ak).then({lng, lat} => {
 
 ### locationByNavigator
 
-#### H5 navigator 定位方式,返回一个写到当前定位经纬度的 promise
+#### H5 navigator 定位方式,返回一个携带当前定位经纬度的 promise
 
 #### 参数
 
@@ -402,19 +402,50 @@ utils.isSameDay(new Date(), new Date()); // true
 
 - handler: 处理函数
 - delay: 时间段，表示 多长时间后执行这一次函数
+- immediate: 是否立即执行一次，true 为默认执行一次
 
 ```typescript
-function debounce(handler: Function, delay: number): Function;
+function debounce(
+  handler: Function,
+  delay: number,
+  immediate: boolean
+): Function;
 ```
 
-```javascript
-const b = debounce(() => {
-  console.log("debounce");
-}, 1000);
+#### 普通调用
 
-window.onresize = function () {
-  b();
+```javascript
+function fun() {
+  console.log(1);
+}
+const d = debounce(fun, 1000, true);
+d();
+```
+
+#### 绑定 this
+
+```javascript
+const obj = {
+  value: 1,
+  run: function () {
+    console.log(this.value);
+  },
 };
+const d = debounce(obj.run.bind(obj), 1000, false);
+d();
+```
+
+#### 带参数的情形
+
+```javascript
+const obj = {
+  value: 1,
+  run: function (value) {
+    console.log(value + 1);
+  },
+};
+const d = debounce(obj.run.bind(obj), 1000, true);
+d(1);
 ```
 
 ### throttle
@@ -611,6 +642,10 @@ function session(key: string, value?: any): any;
 ```javascript
 session("name", "小红"); // true
 ```
+
+### local
+
+- 用法同 session,是 localStorage 的存取方式
 
 ### monthDays
 
