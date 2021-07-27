@@ -338,6 +338,20 @@ utils.digitUppercase(10801229300.69) ===
   "壹佰零捌亿零壹佰贰拾贰万玖仟叁佰元陆角玖分"; // true
 ```
 
+### 判断文件类型是否为图片
+
+```typescript
+isAssetTypeAnImage(File file)
+```
+
+### 判断文件大小是不是超出范围
+
+- 单位：M
+
+```typescript
+valiadateSize(File file, Number maxSize)
+```
+
 ### formatTime
 
 #### 将代入的毫秒数计算为天、时、分、秒
