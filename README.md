@@ -582,6 +582,18 @@ function isInt(str: string | number): boolean;
 utils.isInt(0); // false
 ```
 
+### isNumber
+
+#### 判断字符串是不是纯数字字符串
+
+```typescript
+function isNumber(str: string | number): boolean;
+```
+
+```javascript
+utils.isNumber("123a"); // false
+```
+
 ### isSpecialCode
 
 #### 判断含不含有特殊字符
